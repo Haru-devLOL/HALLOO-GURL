@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toujours pote ?</title>
+    <style>
+        body {
+            background-color: pink;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            margin-top: 20%;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        #merci {
+            display: none;
+            font-size: 50px;
+            color: gold;
+            text-align: center;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .glitter {
+            color: gold;
+            text-shadow: 0 0 5px gold, 0 0 10px gold, 0 0 20px gold;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="question">Toujours pote ? 😊</h1>
+    <div id="buttons">
+        <button id="yesBtn">Oui</button>
+        <button id="noBtn">Non</button>
+    </div>
+    <h1 id="merci">Merci <3 ✨</h1>
+
+    <script>
+        let noClickCount = 0;
+
+        const yesBtn = document.getElementById("yesBtn");
+        const noBtn = document.getElementById("noBtn");
+        const merci = document.getElementById("merci");
+        const question = document.getElementById("question");
+        const buttons = document.getElementById("buttons");
+
+        yesBtn.addEventListener("click", () => {
+            question.style.display = "none";
+            buttons.style.display = "none";
+            merci.style.display = "block";
+        });
+
+        noBtn.addEventListener("mouseover", () => {
+            if (noClickCount < 3) {
+                noBtn.style.position = "absolute";
+                noBtn.style.top = Math.random() * 80 + "%";
+                noBtn.style.left = Math.random() * 80 + "%";
+                noClickCount++;
+            } else {
+                noBtn.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
